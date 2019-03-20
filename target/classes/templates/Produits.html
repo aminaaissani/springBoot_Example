@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Produits</title>
+<link href="css/bootstrap.css"   rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+<form th:action=@{Produits} th:methode="GET">
+<label> Mot clé:</label>
+<input type="text" name="motCle" th:value=${motCle} />
+<button class="btn btn-primary">Chercher</button>
+</form>
+
+<h3>Produits !</h3>
+
+<table class="table">
+<thead>
+<tr><th>ID</th><th>Designation</th> <th>Prix</th><th>Quantité</th></tr>
+</thead>
+<tbody>
+<tr  th:each="p:${ListPro}" >
+<td th:text="${p.id}"></td>
+<td th:text="${p.designation}"></td>
+<td th:text="${p.prix }"></td>
+<td th:text="${p.quantite}"></td>
+<td><a th:href="@{delete(id=${p.id},page=${pageCourante})}">Delete</a></td>
+</tr>
+</tbody>
+</table>
+<ul  class="nav nav-pills">
+<li   th:each="pa,status:${pages}" > 
+<a class="nav-link"  th:href="@{Produits(page=${status.index},motCle=${motCle})}" th:text="${status.index}">
+</a>
+ </li>
+</ul>
+</div>
+</body>
+</html>
