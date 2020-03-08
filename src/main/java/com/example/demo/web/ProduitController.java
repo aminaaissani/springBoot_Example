@@ -41,4 +41,6 @@ public class ProduitController {
 		return "redirect:/Produits?page="+page;
 	}
 	
+	
+	
 }

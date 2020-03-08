@@ -23,7 +23,8 @@ public class MipnApplication {
 		catDao.save(c1);
 		proDao.save(p1);
 		
-		System.out.println("Hello World!");
+		double prix=proDao.prixProduct("Asus1");
+		System.out.println("Hello World!"+prix);
 	}
 
 }
